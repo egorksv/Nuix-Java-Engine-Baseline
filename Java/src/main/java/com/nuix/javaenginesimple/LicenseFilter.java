@@ -47,9 +47,9 @@ public class LicenseFilter {
 	 */
 	public boolean isValid(AvailableLicence license) {
 		
-		int workerCount = license.getWorkers();
+		Integer workerCount = license.getWorkers();
 		// Verify the minimum worker count
-		if(minWorkers > 0 && workerCount < minWorkers) {
+		if(minWorkers > 0 && workerCount != null && workerCount < minWorkers) {
 			logger.info(String.format("!!! License has %s workers, filter specifies a minimum of %s",workerCount,minWorkers));
 			return false;
 		}

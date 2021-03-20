@@ -1,10 +1,12 @@
 package com.nuix.javaenginesimple;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import org.apache.commons.collections4.IterableUtils;
 import org.apache.log4j.Logger;
 
 import nuix.Utilities;
@@ -362,7 +364,7 @@ public class EngineWrapper implements AutoCloseable {
 			logger.info(String.format("\t%s: %s",entry.getKey(),entry.getValue()));
 		}
 		
-		Iterable<AvailableLicence> licences = licensor.findAvailableLicences(licenseOptions);
+		Iterable<AvailableLicence> licences = IterableUtils.toList(licensor.findAvailableLicences(licenseOptions));
 		
 		logger.info("Iterating available licences...");
 		for(AvailableLicence license : licences) {
