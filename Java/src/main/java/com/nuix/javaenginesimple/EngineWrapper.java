@@ -351,7 +351,9 @@ public class EngineWrapper implements AutoCloseable {
 		} finally {
 			if(container != null){
 				logger.info("Closing GlobalContainer...");
-				container.close();
+				logger.info("Not closing GlobalContainer as it freezes the JVM, script is exiting the process anyway...");
+				//container.close();
+
 			}
 		}
 	}
